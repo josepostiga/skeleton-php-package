@@ -1,9 +1,11 @@
 <?php
 
 return (new PhpCsFixer\Config())
+    ->setCacheFile(sys_get_temp_dir() . '/php-cs-fixer' . preg_replace('~\W~', '-', __DIR__))
     ->setRules([
         '@PhpCsFixer' => true,
-        '@PSR12' => true,
+        '@PER' => true,
+        'declare_strict_types' => true,
         'multiline_whitespace_before_semicolons' => [
             'strategy' => 'no_multi_line',
         ],
@@ -14,7 +16,7 @@ return (new PhpCsFixer\Config())
             'case' => 'snake_case',
         ],
         'single_line_comment_style' => [
-            'comment_types' => ['hash'],
+             'comment_types' => ['hash']
         ],
     ])
     ->setFinder(
@@ -22,13 +24,13 @@ return (new PhpCsFixer\Config())
             ->in(__DIR__)
             ->exclude([
                 '.ci',
-                '.idea',
                 '.phan',
                 '.vscode',
-                'node_modules',
-                'storage',
                 'vendor',
+                'storage',
+                'node_modules',
             ])
+            ->notName('*.blade.php')
             ->notName('*.dist')
             ->notName('*.json')
             ->notName('*.lock')

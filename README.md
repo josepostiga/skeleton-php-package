@@ -1,13 +1,8 @@
 # Skeleton for PHP packages development
 
-This repository provides a base skeleton for PHP package development, specifically:
+This repository provides a base skeleton for PHP package development.
 
-- PHP 8.0 docker image based on Alpine with XDebug and Composer.
-- Direnv support, automatically mapping any `php` call to use this repository's docker container.
-- Run tests with PHPUnit.
-- Enforce PSR-12 coding styles with Php-Cs-Fixer.
-
-## How to use this on your next project
+## Creating a new project based on this skeleton
 
 Run `composer create-project josepostiga/skeleton-php-package --prefer-source YourPackageName`.
 
